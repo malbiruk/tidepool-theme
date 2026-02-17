@@ -177,6 +177,6 @@ fig.update_layout(
 )
 
 fig.write_image("examples/images/plotly_gallery.png", scale=2)
-fig.write_html("examples/images/plotly_gallery.html", include_plotlyjs="cdn")
+fig.write_html("docs/plotly_gallery.html", include_plotlyjs="cdn")
 print("Saved examples/images/plotly_gallery.png")
-print("Saved examples/images/plotly_gallery.html")
+print("Saved docs/plotly_gallery.html")
