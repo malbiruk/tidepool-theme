@@ -58,7 +58,7 @@ fig = px.scatter(...)  # uses tidepool template by default
 ## What's included
 
 - **Background:** `#fafafa` — light warm gray
-- **Font:** [Source Serif 4](https://github.com/adobe-fonts/source-serif) (bundled, SIL Open Font License)
+- **Font:** [Source Serif 4](https://github.com/adobe-fonts/source-serif) bundled for matplotlib (SIL Open Font License); plotly template uses Source Serif Pro (loaded from Google Fonts / system fallback)
 - **Color cycle:** 34 soft coastal tones starting with lightseagreen, lightsalmon, steelblue
 - **Colormaps:** `purpor` / `purpor_r` (sequential) and `tealrose` / `tealrose_r` (diverging), from [CARTOColors](https://carto.com/carto-colors/)
 - **Layout:** no grid, left+bottom spines only, clean axis lines

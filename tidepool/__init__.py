@@ -124,6 +124,7 @@ def set_mpl_style():
     _register_colormaps()
     plt.style.use(str(_STYLE_PATH))
     mpl.rcParams["font.serif"] = [
+        "Source Serif 4",
         "Source Serif Pro",
         "Georgia",
         "DejaVu Serif",
