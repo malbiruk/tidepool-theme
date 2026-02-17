@@ -57,6 +57,11 @@ COLORWAY = [
     "palegoldenrod",
 ]
 
+PLOTLY_CONFIG = {
+    "displaylogo": False,
+    "scrollZoom": True,
+}
+
 _PURPOR_COLORS = [
     "#f9ddda",
     "#f2b9c4",
@@ -119,7 +124,6 @@ def set_mpl_style():
     _register_colormaps()
     plt.style.use(str(_STYLE_PATH))
     mpl.rcParams["font.serif"] = [
-        "Source Serif 4",
         "Source Serif Pro",
         "Georgia",
         "DejaVu Serif",
@@ -144,7 +148,7 @@ def set_plotly_template(*, set_default=True):
     template.layout.plot_bgcolor = "#fafafa"
 
     # Font — matches font.size/family/labelsize in mplstyle
-    template.layout.font.family = "Source Serif 4, Source Serif Pro, Georgia, serif"
+    template.layout.font.family = "Source Serif Pro, Georgia, serif"
     template.layout.font.color = "#000000"
     template.layout.font.size = 12
 
@@ -176,6 +180,10 @@ def set_plotly_template(*, set_default=True):
 
     # Annotations — matches axes.titlesize: 14 (used by make_subplots titles)
     template.layout.annotationdefaults = {"font": {"size": 14}}
+
+    # Interaction — pan by default, hide box/lasso select
+    template.layout.dragmode = "pan"
+    template.layout.modebar.remove = ["select2d", "lasso2d"]
 
     template.layout.colorway = COLORWAY
     template.layout.colorscale = {

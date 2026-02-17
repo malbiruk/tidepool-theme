@@ -177,6 +177,9 @@ fig.update_layout(
 )
 
 fig.write_image("examples/images/plotly_gallery.png", scale=2)
-fig.write_html("docs/plotly_gallery.html", include_plotlyjs="cdn")
+
+html_path = "docs/plotly_gallery.html"
+fig.write_html(html_path, include_plotlyjs="cdn", config=tidepool.PLOTLY_CONFIG)
+
 print("Saved examples/images/plotly_gallery.png")
-print("Saved docs/plotly_gallery.html")
+print(f"Saved {html_path}")
