@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tidepool-theme"
+version = "0.1.0"
+description = "A light, minimal plotting theme with soft coastal colors and serif typography"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.9"
+dependencies = []
+authors = [{ name = "Klim Kostiuk", email = "2601075@gmail.com" }]
+keywords = ["plotting", "theme", "matplotlib", "plotly", "seaborn", "visualization"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Visualization",
+    "Framework :: Matplotlib",
+]
+
+[project.urls]
+Homepage = "https://github.com/malbiruk/tidepool-theme"
+Repository = "https://github.com/malbiruk/tidepool-theme"
+Issues = "https://github.com/malbiruk/tidepool-theme/issues"
+
+[project.optional-dependencies]
+mpl = ["matplotlib>=3.5"]
+plotly = ["plotly>=5.0"]
+all = ["matplotlib>=3.5", "plotly>=5.0"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["tidepool"]

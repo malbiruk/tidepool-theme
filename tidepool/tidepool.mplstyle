@@ -1,0 +1,78 @@
+# Tidepool — a light, minimal matplotlib theme
+# Soft coastal palette, serif typography, clean layout
+# Designed to match the tidepool plotly template
+
+# Figure
+figure.facecolor: fafafa
+figure.edgecolor: fafafa
+figure.dpi: 100
+figure.titlesize: 18
+figure.titleweight: normal
+
+# Axes
+axes.facecolor: fafafa
+axes.edgecolor: 000000
+axes.linewidth: 0.8
+axes.grid: False
+axes.axisbelow: True
+axes.xmargin: 0.05
+axes.ymargin: 0.05
+axes.titlesize: 14
+axes.titleweight: normal
+axes.titlepad: 12
+axes.labelsize: 12
+axes.labelcolor: 000000
+axes.labelpad: 8
+axes.spines.top: False
+axes.spines.right: False
+
+# Color cycle
+axes.prop_cycle: cycler('color', ['20B2AA', 'FFA07A', '4682B4', 'FFB6C1', 'DDA0DD', '87CEEB', '8FBC8F', 'A9A9A9', 'E9967A', '48D1CC', 'F08080', '98FB98', 'DA70D6', 'B0E0E6', 'D8BFD8', '778899', 'FFDAB9', 'FFE4E1', 'E6E6FA', '7FFFD4', 'F5DEB3', 'AFEEEE', 'F4A460', 'E0FFFF', 'F0E68C', '66CDAA', 'FFFACD', 'FFC0CB', 'DB7093', 'FFE4B5', 'DEB887', 'DCDCDC', 'BC8F8F', 'EEE8AA'])
+
+# Grid (when enabled manually)
+grid.color: eaeaea
+grid.linewidth: 0.6
+grid.alpha: 1.0
+
+# Ticks — no tick marks, labels only (matching plotly)
+xtick.color: 000000
+ytick.color: 000000
+xtick.labelsize: 12
+ytick.labelsize: 12
+xtick.major.size: 0
+ytick.major.size: 0
+xtick.minor.visible: False
+ytick.minor.visible: False
+
+# Font — Source Serif 4 registered at runtime, falls back to system serif
+font.family: serif
+font.size: 12
+
+# Legend — semi-transparent background in case legend overlaps data
+legend.frameon: True
+legend.facecolor: fafafa
+legend.framealpha: 0.7
+legend.edgecolor: fafafa
+legend.fontsize: 9
+
+# Lines
+lines.linewidth: 1.8
+lines.markersize: 6
+
+# Patches (bars, histograms) — white edge gives tiny gaps
+patch.edgecolor: fafafa
+patch.linewidth: 1.0
+
+# Scatter
+scatter.edgecolors: face
+
+# Colormap
+# Default cmap set at runtime via _register_colormaps() to purpor_r
+# Falls back to PuRd_r if used standalone without the Python package
+image.cmap: PuRd_r
+
+# Saving
+savefig.facecolor: fafafa
+savefig.edgecolor: fafafa
+savefig.bbox: tight
+savefig.dpi: 150
