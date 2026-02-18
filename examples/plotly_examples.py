@@ -178,6 +178,8 @@ fig.update_layout(
 
 fig.write_image("examples/images/plotly_gallery.png", scale=2)
 
+# Drop fixed dimensions so the HTML adapts to the browser window
+fig.update_layout(width=None, height=None)
 html_path = "docs/plotly_gallery.html"
 fig.write_html(html_path, include_plotlyjs="cdn", config=tidepool.PLOTLY_CONFIG)
 
