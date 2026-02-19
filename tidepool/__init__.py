@@ -197,7 +197,9 @@ def set_plotly_template(*, set_default=True):
 
     # Trace defaults — matches lines.linewidth and patch.edgecolor in mplstyle
     template.data.scatter = [go.Scatter(line={"width": 1.8})]
-    template.data.bar = [go.Bar(marker={"line": {"color": "#fafafa", "width": 1.0}})]
+    template.data.bar = [
+        go.Bar(width=0.8, marker={"line": {"color": "#fafafa", "width": 1.0}}),
+    ]
     template.data.histogram = [
         go.Histogram(marker={"line": {"width": 0}}),
     ]

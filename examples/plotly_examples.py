@@ -74,7 +74,6 @@ fig.add_trace(
         y=bar_categories,
         x=bar_values,
         orientation="h",
-        width=0.8,
         marker_color=tidepool.COLORWAY[:6],
         showlegend=False,
     ),
