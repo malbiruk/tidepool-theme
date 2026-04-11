@@ -1,17 +1,21 @@
 """
 Tidepool — a light, minimal plotting theme.
 
-Soft coastal palette, Source Serif 4 typography, clean layout.
+Soft coastal palette, clean layout.
 Available for both matplotlib/seaborn and plotly.
+
+Typography: Source Serif 4 (serif, default) or Inter (sans).
 
 Usage:
     import tidepool
 
     # Matplotlib / Seaborn
-    tidepool.set_mpl_style()
+    tidepool.set_mpl_style()            # serif (default)
+    tidepool.set_mpl_style(font="sans") # sans (Inter)
 
     # Plotly
     tidepool.set_plotly_template()
+    tidepool.set_plotly_template(font="sans")
 """
 
 from pathlib import Path
@@ -82,8 +86,41 @@ _TEALROSE_COLORS = [
 ]
 
 
+_FONT_FAMILIES = {
+    "serif": {
+        "mpl_family": "serif",
+        "mpl_chain": [
+            "Source Serif 4",
+            "Source Serif Pro",
+            "Georgia",
+            "DejaVu Serif",
+            "serif",
+        ],
+        "plotly_chain": "Source Serif Pro, Georgia, serif",
+    },
+    "sans": {
+        "mpl_family": "sans-serif",
+        "mpl_chain": [
+            "Inter",
+            "Helvetica Neue",
+            "Helvetica",
+            "DejaVu Sans",
+            "sans-serif",
+        ],
+        "plotly_chain": "Inter, Helvetica Neue, Helvetica, sans-serif",
+    },
+}
+
+
+def _validate_font(font):
+    """Validate and return font config."""
+    if font not in _FONT_FAMILIES:
+        raise ValueError(f"font must be 'serif' or 'sans', got {font!r}")
+    return _FONT_FAMILIES[font]
+
+
 def _register_fonts():
-    """Register bundled Source Serif 4 fonts with matplotlib."""
+    """Register bundled fonts (Source Serif 4 + Inter) with matplotlib."""
     from matplotlib.font_manager import fontManager
 
     for ttf in _FONTS_DIR.glob("*.ttf"):
@@ -102,11 +139,15 @@ def _register_colormaps():
             mpl.colormaps.register(cm.reversed())
 
 
-def set_mpl_style():
+def set_mpl_style(*, font="serif"):
     """Activate the tidepool style for matplotlib and seaborn.
 
-    Registers the bundled Source Serif 4 font, custom colormaps
-    (purpor, tealrose + reversed variants), and applies the style.
+    Args:
+        font: Typography variant — "serif" (Source Serif 4, default)
+              or "sans" (Inter).
+
+    Registers bundled fonts, custom colormaps (purpor, tealrose +
+    reversed variants), and applies the style.
 
     Seaborn inherits matplotlib's rcParams automatically — just call
     this before creating any seaborn plots.
@@ -120,28 +161,27 @@ def set_mpl_style():
     import matplotlib as mpl
     import matplotlib.pyplot as plt
 
+    fc = _validate_font(font)
     _register_fonts()
     _register_colormaps()
     plt.style.use(str(_STYLE_PATH))
-    mpl.rcParams["font.serif"] = [
-        "Source Serif 4",
-        "Source Serif Pro",
-        "Georgia",
-        "DejaVu Serif",
-        "serif",
-    ]
+    mpl.rcParams["font.family"] = fc["mpl_family"]
+    mpl.rcParams[f"font.{fc['mpl_family']}"] = fc["mpl_chain"]
     mpl.rcParams["image.cmap"] = "purpor_r"
 
 
-def set_plotly_template(*, set_default=True):
+def set_plotly_template(*, font="serif", set_default=True):
     """Register and activate the tidepool template for plotly.
 
     Args:
+        font: Typography variant — "serif" (Source Serif Pro, default)
+              or "sans" (Inter).
         set_default: If True, sets tidepool as the default template.
     """
     import plotly.graph_objects as go
     import plotly.io as pio
 
+    fc = _validate_font(font)
     template = go.layout.Template()
 
     # Background
@@ -149,7 +189,7 @@ def set_plotly_template(*, set_default=True):
     template.layout.plot_bgcolor = "#fafafa"
 
     # Font — matches font.size/family/labelsize in mplstyle
-    template.layout.font.family = "Source Serif Pro, Georgia, serif"
+    template.layout.font.family = fc["plotly_chain"]
     template.layout.font.color = "#000000"
     template.layout.font.size = 12
 
