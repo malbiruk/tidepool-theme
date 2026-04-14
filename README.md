@@ -13,7 +13,7 @@ Available for both **matplotlib/seaborn** and **plotly**.
 
 ![Plotly gallery](examples/images/plotly_gallery.png)
 
-**[Interactive version](https://malbiruk.github.io/tidepool-theme/plotly_gallery.html)** — hover, zoom, pan
+**[Interactive version](https://malbiruk.github.io/tidepool-theme/plotly_gallery.html)**
 
 ## Installation
 
