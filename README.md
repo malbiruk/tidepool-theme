@@ -1,6 +1,6 @@
 # tidepool
 
-A light, minimal plotting theme with soft coastal colors and serif typography.
+A light, minimal plotting theme with soft coastal colors and serif (or sans) typography.
 Available for both **matplotlib/seaborn** and **plotly**.
 
 ## Gallery
@@ -42,6 +42,8 @@ import seaborn as sns
 sns.scatterplot(...)
 ```
 
+Pass `font="sans"` for Inter instead of the default Source Serif 4.
+
 > **Note:** calling `sns.set_theme()` after `set_mpl_style()` will override
 > the style. Use seaborn plotting functions directly instead.
 
@@ -55,10 +57,12 @@ import plotly.express as px
 fig = px.scatter(...)  # uses tidepool template by default
 ```
 
+Pass `font="sans"` for Inter instead of the default Source Serif Pro.
+
 ## What's included
 
 - **Background:** `#fafafa` — light warm gray
-- **Font:** [Source Serif 4](https://github.com/adobe-fonts/source-serif) bundled for matplotlib (SIL Open Font License); plotly template uses Source Serif Pro (loaded from Google Fonts / system fallback)
+- **Fonts:** [Source Serif 4](https://github.com/adobe-fonts/source-serif) (default) and [Inter](https://github.com/rsms/inter) (opt-in via `font="sans"`), both bundled under SIL Open Font License. Plotly uses Source Serif Pro / Inter via Google Fonts / system fallback.
 - **Color cycle:** 34 soft coastal tones starting with lightseagreen, lightsalmon, steelblue
 - **Colormaps:** `purpor` / `purpor_r` (sequential) and `tealrose` / `tealrose_r` (diverging), from [CARTOColors](https://carto.com/carto-colors/)
 - **Layout:** no grid, left+bottom spines only, clean axis lines
